@@ -1,10 +1,3 @@
-// NeoPixel Ring simple sketch (c) 2013 Shae Erisson
-// Released under the GPLv3 license to match the rest of the
-// Adafruit NeoPixel library
-// This sketch shows use of the "new" operator with Adafruit_NeoPixel.
-// It's helpful if you don't know NeoPixel settings at compile time or
-// just want to store this settings in EEPROM or a file on an SD card.
-
 #include <Adafruit_NeoPixel.h>
 #include <Servo.h>
 
@@ -19,7 +12,7 @@ int pin         =  6; // On Trinket or Gemma, suggest changing this to 1
 const int digitalPin = 9;
 const int threshold = 1000;
 // How many NeoPixels are attached to the Arduino?
-int numPixels   = 21; // Popular NeoPixel ring size
+int numPixels   = 21; 
 int counter = 0;
 
 
@@ -42,19 +35,11 @@ void setup() {
 #endif
   // END of Trinket-specific code.
   
-  // Right about here is where we could read 'pin', 'numPixels' and/or
-  // 'pixelFormat' from EEPROM or a file on SD or whatever. This is a simple
-  // example and doesn't do that -- those variables are just set to fixed
-  // values at the top of this code -- but this is where it would happen.
 
   // Then create a new NeoPixel object dynamically with these values:
   pixels = new Adafruit_NeoPixel(numPixels, pin, pixelFormat);
 
-  // Going forward from here, code works almost identically to any other
-  // NeoPixel example, but instead of the dot operator on function calls
-  // (e.g. pixels.begin()), we instead use pointer indirection (->) like so:
   pixels->begin(); // INITIALIZE NeoPixel strip object (REQUIRED)
-  // You'll see more of this in the loop() function below.
   pixels->clear(); // Set all pixel colors to 'off'
   servo1.attach(servoPin);
   // The first NeoPixel in a strand is #0, second is 1, all the way up
