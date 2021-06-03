@@ -1,11 +1,3 @@
-#
-# Code by Alexander Pruss and under the MIT license
-
-
-#y
-# Draw a water-filled donut
-#
-
 from mine import *
 import time
 import pyfirmata
@@ -39,7 +31,7 @@ def backward(x,y,z,num):
       mc.setBlock(x-i,y,z, block.REDSTONE_BLOCK)
       time.sleep(.09)
       mc.setBlock(x-i,y,z, block.AIR)
-def draw_donut():
+def run():
    mc.setBlock(-66, 12, -210, block.REDSTONE_BLOCK)
    time.sleep(.09)
    mc.setBlock(-66, 12, -210, block.AIR)
@@ -86,48 +78,11 @@ def draw_donut():
 
    mc.postToChat("program done")
 
-   
-
-   
-# def draw_donut(x, y, z):
-#    val = 0
-#    for l in range(10):
-#       for p in range(1000):
-         
-#          mc.setBlock(x+25-p, y+25-l, z+25, block.BEDROCK)
-#          time.sleep(.05)
-#          if p < 48:
-#             mc.setBlock(x+25-p, y+25-l, z+25, block.AIR)
-#          else:
-#             mc.setBlock(x+25-p, y+25-l, z+25, block.AIR)
-#             break
-#       for i in range(1000):
-#          mc.setBlock(x-23+i, y+23-l, z+25, block.BEDROCK)
-#          time.sleep(.05)
-#          if i < 48:
-#             mc.setBlock(x-23+i, y+23-l, z+25, block.AIR)
-#          else:
-#             mc.setBlock(x-23+i, y+23-l, z+25, block.AIR)
-#             break
-
-      
-         
-     
-#   for x in range(-R-r,R+r):
-#      for y in range(-R-r,R+r):
-#         xy_dist = sqrt(x**2 + y**2)
-#         if (xy_dist > 0):
-#            ringx = x / xy_dist * R # nearest point on major ring
-#            ringy = y / xy_dist * R
-#            ring_dist_sq = (x-ringx)**2 + (y-ringy)**2
-
-#            for z in range(-R-r,R+r):
-#                if (ring_dist_sq + z**2 <= r**2):
-#                   mc.setBlock(mcx+x, mcy+z, mcz+y, mcblock)
+  
 
 mc = Minecraft()
 
 
 
-draw_donut()
+run()
 mc.postToChat("Done")
